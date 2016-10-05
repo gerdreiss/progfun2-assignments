@@ -1,2 +1,3 @@
-# progfun2-assignments
-Assignments for the Coursera Course "Functional Program Design in Scala"
+# Functional Programming Design in Scala
+## (Martin Odersky, Coursera)
+## Assignments
