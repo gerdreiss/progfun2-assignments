@@ -1,7 +1,5 @@
 package streams
 
-import common._
-
 /**
  * This trait represents the layout and building blocks of the game
  *
@@ -136,10 +134,10 @@ trait GameDef {
      * the current block, together with the corresponding move.
      */
     def neighbors: List[(Block, Move)] = List(
-      (startBlock.left, Left),
-      (startBlock.up, Up),
-      (startBlock.right, Right),
-      (startBlock.down, Down)
+      (left, Left),
+      (up, Up),
+      (right, Right),
+      (down, Down)
     )
 
     /**
