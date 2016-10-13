@@ -89,5 +89,8 @@ trait Solver extends GameDef {
    * the first move that the player should perform from the starting
    * position.
    */
-  lazy val solution: List[Move] = pathsToGoal map (_._2) filterNot (_.isEmpty) head
+  lazy val solution: List[Move] = pathsToGoal map(_._2) headOption match {
+    case Some(l) => l
+    case None => Nil
+  }
 }
