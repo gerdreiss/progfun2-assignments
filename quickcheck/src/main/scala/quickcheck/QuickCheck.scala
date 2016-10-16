@@ -29,4 +29,19 @@ abstract class QuickCheckHeap extends Properties("Heap") with IntHeap {
     deleteMin(insert(0, empty)) == empty
   }
 
+  def findDeleteMin(h: H): List[Int] =
+    if (isEmpty(h)) List()
+    else findMin(h) :: findDeleteMin(deleteMin(h))
+
+  def isSorted(res: Seq[Int]): Boolean = res match {
+    case Nil => true
+    case x :: Nil => true
+    case x :: xs => x <= xs.head && isSorted(xs)
+  }
+
+  property("gen4") = forAll { (h: H) =>
+    val res: Seq[Int] = findDeleteMin(h)
+    isSorted(res)
+  }
+
 }
