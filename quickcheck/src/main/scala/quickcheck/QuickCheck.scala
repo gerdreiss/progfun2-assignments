@@ -27,7 +27,7 @@ abstract class QuickCheckHeap extends Properties("Heap") with IntHeap {
 
   property("gen2") = forAll { (h: H) =>
     val m = if (isEmpty(h)) 0 else findMin(h)
-    val ltm = Math.min(m, Int.MinValue)
+    val ltm = m - 1
     findMin(insert(ltm, insert(m, h))) == ltm
   }
 
