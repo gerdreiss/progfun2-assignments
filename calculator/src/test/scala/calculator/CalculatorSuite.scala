@@ -1,23 +1,19 @@
 package calculator
 
-import org.scalatest.FunSuite
-
+import calculator.TweetLength.MaxTweetLength
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
-
-import org.scalatest._
-
-import TweetLength.MaxTweetLength
+import org.scalatest.{FunSuite, _}
 
 @RunWith(classOf[JUnitRunner])
 class CalculatorSuite extends FunSuite with ShouldMatchers {
 
-  /******************
-   ** TWEET LENGTH **
-   ******************/
+  /** ****************
+    * * TWEET LENGTH **
+    * *****************/
 
   def tweetLength(text: String): Int =
-    text.codePointCount(0, text.length)
+  text.codePointCount(0, text.length)
 
   test("tweetRemainingCharsCount with a constant signal") {
     val result = TweetLength.tweetRemainingCharsCount(Var("hello world"))
@@ -51,4 +47,11 @@ class CalculatorSuite extends FunSuite with ShouldMatchers {
     assert(resultRed2() == "red")
   }
 
+  test("Polynomials") {
+    val result1 = Polynomial.computeDelta(Var(1), Var(1), Var(1))
+    assert(result1() == -3.0)
+
+    val result2 = Polynomial.computeSolutions(Var(1), Var(1), Var(1), Var(1))
+    assert(result2() == Set(0.0, -1.0))
+  }
 }
