@@ -13,7 +13,7 @@ object Polynomial {
     Signal(delta() match {
       case d if d < 0 => Set()
       case d if d == 0 => Set(-b() / 2 * a())
-      case d => Set((-b() + sqrt(delta())) / 2 * a(), (-b() - sqrt(delta())) / 2 * a())
+      case d => Set((-b() + sqrt(d)) / 2 * a(), (-b() - sqrt(d)) / 2 * a())
     })
   }
 }
