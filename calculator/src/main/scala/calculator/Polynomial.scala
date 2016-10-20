@@ -5,7 +5,7 @@ import scala.math._
 object Polynomial {
   def computeDelta(a: Signal[Double], b: Signal[Double],
                    c: Signal[Double]): Signal[Double] = {
-    Signal(scala.math.pow(b(), 2) - 4 * a() * c())
+    Signal(pow(b(), 2) - 4 * a() * c())
   }
 
   def computeSolutions(a: Signal[Double], b: Signal[Double],
