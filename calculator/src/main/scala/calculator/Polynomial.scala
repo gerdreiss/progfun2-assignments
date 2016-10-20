@@ -1,5 +1,7 @@
 package calculator
 
+import scala.math._
+
 object Polynomial {
   def computeDelta(a: Signal[Double], b: Signal[Double],
                    c: Signal[Double]): Signal[Double] = {
@@ -11,7 +13,7 @@ object Polynomial {
     Signal(delta() match {
       case d if d < 0 => Set()
       case d if d == 0 => Set(-b() / (2 * a()))
-      case d => Set((-b() + scala.math.sqrt(delta())) / (2 * a()), (-b() - scala.math.sqrt(delta())) / (2 * a()))
+      case d => Set((-b() + sqrt(delta())) / (2 * a()), (-b() - sqrt(delta())) / (2 * a()))
     })
   }
 }
